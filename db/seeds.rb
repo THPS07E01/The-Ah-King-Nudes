@@ -133,7 +133,7 @@ puts "                                                                          
 
 puts ""
 sleep(2)
-puts "                                                                                            AND GET READY TO CTRL + C...."
+puts "                                                                                                   AND GET READY TO CTRL + C...."
 sleep(3)
 
 system("curl parrot.live")
