@@ -89,6 +89,9 @@ puts "yyyyyyyyyyyyyyyyyhhhdddmmmmNNmmmmmmmddddhhhhyhhhddddddhyyssssssssssssooo++
 
 puts ""
 puts "                                                                                    -- DATABASE #{"REINITIALIZED".colorize(:red).blink} --           You've been hard_peepooded!"
+
+# SUPPRESION DU CONTENU DE LA TABLE SI BESOIN ET DEMARRAGE DU SEED.
+
 User.destroy_all
 Link.destroy_all
 Comment.destroy_all
@@ -99,7 +102,7 @@ ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 
 ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'sub_comments'")
 
 
-
+# SEED User
 50.times do |user|
   usr = User.create!(name: Faker::RickAndMorty.character, mail: Faker::Internet.email)
   print "."
@@ -107,18 +110,23 @@ end
 puts "Wait for it..."
 sleep(1)
 
+# SEED Link
 80.times do |link|
   lnk = Link.create!(user_id: rand(1..50), title: Faker::RickAndMorty.quote, url: Faker::Internet.url)
   print "."
 end
 puts "Wait for it....."
 sleep(1)
+
+# SEED Comment
 120.times do |comment|
   cmt = Comment.create!(user_id: rand(1..50), link_id: rand(1..80), body: Faker::TheITCrowd.quote)
   print "."
 end
 puts "Wait for it........."
 sleep(1)
+
+# SEED SubComment
 100.times do |subcomment|
   scmt = SubComment.create!(user_id: rand(1..50), comment_id: rand(1..120), body: Faker::MostInterestingManInTheWorld.quote)
 end
