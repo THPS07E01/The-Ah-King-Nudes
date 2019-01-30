@@ -131,6 +131,9 @@ puts ""
 sleep(2)
 puts "                                                                                                      DONE !! NOW ENJOY.."
 
+puts ""
 sleep(2)
+puts "                                                                                            AND GET READY TO CTRL + C...."
+sleep(3)
 
 system("curl parrot.live")
